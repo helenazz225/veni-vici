@@ -11,12 +11,13 @@ function App() {
   const[attribute1, setAttribute1] = useState("")
   const[attribute2, setAttribute2] = useState("")
   const[attribute3, setAttribute3] = useState("")
+  const[banned, setBanned] = useState([])
   const[inputs, setInputs] = useState({
     limit: "1",
     page: "0",
     order: "RAND",
-    has_breeds: "none",
-    breed_ids: "beng",
+    has_breeds: "1",
+    breed_ids: "",
     category_ids: "none",
     sub_id: "none",
     url: URL
@@ -26,7 +27,7 @@ function App() {
       limit: "1",
       page: "0",
       order: "RAND",
-      has_breeds: "0",
+      has_breeds: "1",
       breed_ids: "",
       category_ids: "none",
       sub_id: "none",
@@ -47,14 +48,27 @@ function App() {
     const response = await fetch(query);
     const json = await response.json();
     // console.log('https://api.thecatapi.com/v1/images/' + json[0].id)
-    const newQuery = 'https://api.thecatapi.com/v1/images/' + json[0].id
-    const response2 = await fetch(newQuery);
+    // const newQuery = 'https://api.thecatapi.com/v1/images/' + json[0].id
+    // const response2 = await fetch(newQuery);
     // const json2 = await response2.json();
-    // console.log(json2)
+    // console.log(json[0].breeds[0])
     setImg(json[0].url)
-    setAttribute1(json[0].id)
+    // if (banned.indexOf(json[0].breeds[0].energy_level) == -1) {
+    //   console.log('test')
+    //   callAPI()
+    // }
+    setAttribute1(json[0].breeds[0].name)
+    setAttribute2(json[0].breeds[0].origin)
+    setAttribute3(json[0].breeds[0].energy_level)
+    // if (json[0].breeds[0].energy_level == 5) {
+    //   fetchData()
+    // }
     // console.log(json[0])
     // setAttribute1(json[0].)
+    // if (banned.indexOf(attribute3) > -1) {
+    //   console.log('ah')
+    //   callAPI();
+    // }
   }
 
   useEffect(() => {
@@ -62,13 +76,14 @@ function App() {
   }, [])
 
   const makeQuery = () => {
-    let wait_until = "network_idle";
-    let response_type = "json";
-    let fail_on_status = "400%2C404%2C500-511";
-    let url_starter = "https://";
-    let fullURL = url_starter + inputs.url;
-    let query = 'https://api.thecatapi.com/v1/images/search?limit=1&breed_ids=&{breed_ids}&api_key=live_2I42Gk1cQJE4IzXk9xhXDkxDXcZN3dMMX4kcHXIXJ9V8bRpNICnasB4LPbXkm6Ox'
+    let query = 'https://api.thecatapi.com/v1/images/search?limit=1&breed_ids=&{breed_ids}&has_breeds=1&api_key=live_2I42Gk1cQJE4IzXk9xhXDkxDXcZN3dMMX4kcHXIXJ9V8bRpNICnasB4LPbXkm6Ox'
     callAPI(query).catch(console.error);
+  }
+
+  const handleBanned = (e) => {
+    if (!banned.includes(e.target.value)) {
+      setBanned([...banned, e.target.value])
+    }
   }
 
   return (
@@ -81,11 +96,15 @@ function App() {
         </div>
         <img src={img} />
         <div className='Attributes'>
-          <div>id: {attribute1}</div>
+          <button onClick={handleBanned} value={attribute1}>Breed: {attribute1}</button>
+          <button onClick={handleBanned} value={attribute2}>Country: {attribute2}</button>
+          <button onClick={handleBanned} value={attribute3}>Energy level: {attribute3}</button>
         </div>
       </div>
       <div className='ban-list'>
         <h5>Banned Display list</h5>
+        <div>{banned.map((ban) => <div>{ban}</div>
+        )}</div>
       </div>
     </div>
   )

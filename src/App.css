@@ -13,7 +13,7 @@
   padding: 2em;
   background-color: lavender;
   width: 60vw;
-  height: 75vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,6 +22,7 @@
 .card > img {
   margin-top: 10px;
   width: 40vw;
+  height: 50vh;
   margin-left: 10vw;
   overflow: hidden;
   object-fit: cover;
@@ -32,5 +33,19 @@
   margin-left: 25px;
   background-color: lightblue;
   width: 15vw;
+}
+
+.Attributes {
+  display: flex;
+  /* text-align: center; */
+  justify-content: center;
+}
+
+.Attributes > button {
+  /* background-color: red; */
+  /* border: 1px solid black; */
+  border-radius: 5px;
+  margin: 10px;
+  /* padding: 0px 10px 0px 10px; */
 }
 
