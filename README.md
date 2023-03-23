@@ -4,22 +4,22 @@ Submitted by: **Helena Zhang**
 
 This web app: **Veni-vici**
 
-Time spent: **2.5** hours spent in total
+Time spent: **4** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [ ] **Clicking a button creates a new API fetch request and displays at least three attributes from the returned JSON data**
+- [x] **Clicking a button creates a new API fetch request and displays at least three attributes from the returned JSON data**
 - [x] **Only one item/API call is viewable at a time**
 - [x] **API calls appear random to the user**
 - [x] **At least one image is displayed per API call**
-- [ ] **Clicking on a displayed value for one attribute adds it to a displayed ban list**
-- [ ] **Attributes on the ban list prevent further images/API results with that attribute from being displayed**
+- [x] **Clicking on a displayed value for one attribute adds it to a displayed ban list**
+- [x] **Attributes on the ban list prevent further images/API results with that attribute from being displayed**
 
 The following **optional** features are implemented:
 
-- [ ] Multiple types of attributes can be added to the ban list
+- [x] Multiple types of attributes can be added to the ban list
 - [ ] Users can see a stored history of their previously viewed items from their session
 
 The following **additional** features are implemented:
@@ -30,10 +30,10 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='proj4-gif.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='proj4-gif-2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
+GIF created with Kap](https://getkap.co/) for macOS  
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
